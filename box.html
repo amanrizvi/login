@@ -1,0 +1,16 @@
+<div id="demo">
+      <div class="comment-form">    
+        <textarea type="text" v-model="comment" placeholder="Comment is here: with markdown"></textarea>
+        <label>
+          <input type="text" v-model="author" v-on="keyup: addComment | key enter" placeholder="Author name here:">
+        </label>
+        <button v-on="click: addComment">Add Comment</button>
+   </div>
+    <div v-repeat="comments" class="comments-box" v-markdown="#ola">
+         <p class="author">
+           {{author}}: {{hours}}
+        </p>
+        <p v-html="content | marked" class="content-comment"></p>
+        <p v-on="click: removeComment($index)" class="delete">Delete</p>
+    </div>
+</div>
